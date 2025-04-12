@@ -1,0 +1,20 @@
+<div class="coc-container">
+  <div class="row">
+    <div class="col-md-6 mb-3 d-flex flex-column justify-content-center">
+      <h1 class="coc-title">404</h1>
+      <h2 class="h3">Page non trouvée</h2>
+      <p class="coc-text">
+        @if (error){
+        {{ error.error.reason }}
+        } @else { La page que vous recherchez n'existe pas ou a été déplacée. }
+      </p>
+    </div>
+    <div class="col-md-6 mb-3">
+      <img
+        class="img-fluid"
+        src="images/not_found.png"
+        alt="Page non trouvée"
+      />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="coc-card">
+  <div class="coc-header">
+    <h3 class="coc-card-title">{{ article?.title }}</h3>
+    <span class="coc-date">
+      {{ article?.publishedAt | momentDate }}
+    </span>
+  </div>
+  <div class="coc-body">
+    <div
+      class="coc-img-box"
+      [ngStyle]="{ 'background-image': 'url(' + headerImageUrl + ')' }"
+    >
+      <img class="coc-img" src="images/border.png" alt="" aria-hidden="true" />
+    </div>
+    <div class="coc-content">
+      <a class="coc-btn coc-btn-success" [routerLink]="article?.partialUrl">
+        <span>Lire</span>
+      </a>
+    </div>
+  </div>
+</div>

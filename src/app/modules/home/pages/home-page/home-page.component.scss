@@ -1,0 +1,48 @@
+.coc-header-bg {
+  display: grid;
+
+  width: 100dvw;
+  height: 100dvh;
+
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  overflow: hidden;
+
+  .coc-header-dark {
+    display: grid;
+
+    background-color: rgba(0, 0, 0, 0.3);
+
+    .coc-container {
+      padding-top: 100px;
+
+      .coc-content {
+        display: flex;
+
+        flex-direction: column;
+        justify-content: space-between;
+
+        height: calc(100% - 100px);
+
+        .coc-buttons {
+          display: flex;
+
+          flex-wrap: wrap;
+          gap: 2rem;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+.coc-creators {
+  background-color: var(--coc-bg-color-dark) !important;
+}
+
+.coc-py {
+  padding-block: 7rem !important;
+}

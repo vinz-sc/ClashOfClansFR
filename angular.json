@@ -59,15 +59,18 @@
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ],
-            "allowedCommonJsDependencies": ["@vinz-sc/squadbustersfr-api"]
+            "allowedCommonJsDependencies": [
+              "@vinz-sc/clashofclansfr-api",
+              "moment/locale/fr"
+            ]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "9MB",
+                  "maximumError": "10MB"
                 },
                 {
                   "type": "anyComponentStyle",

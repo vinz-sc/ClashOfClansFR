@@ -1,0 +1,71 @@
+<div class="coc-container">
+  <h1 class="coc-title">{{ title }}</h1>
+
+  @if (articlesPagination | async; as articlesPagination) {
+  <div class="row justify-content-center">
+    @for (article of articlesPagination.items; track article.id) {
+    <div class="col-12 col-md-6 col-lg-4 mb-4">
+      <app-article-card [article]="article"></app-article-card>
+    </div>
+    } @empty {
+    <div class="col-12 mb-4">
+      <img
+        class="img-fluid mx-auto d-block"
+        src="images/royal_champion_western.png"
+        alt="Skin de la championne royale"
+      />
+      <p class="text-center">
+        Actuellement, il n'y a pas d'articles à afficher. Revenez plus tard !
+      </p>
+    </div>
+    }
+  </div>
+
+  @if (articlesPagination.pageCount > 1) {
+  <div class="coc-pagination">
+    <ngb-pagination
+      class="d-flex justify-content-center"
+      [collectionSize]="articlesPagination.totalItemCount"
+      [(page)]="articlesPagination.pageNumber"
+      [pageSize]="articlesPagination.pageSize"
+      [maxSize]="MAXIMUM_PAGES"
+      [rotate]="true"
+      (pageChange)="onPageChange($event)"
+    >
+      <ng-template ngbPaginationPrevious>
+        <button
+          class="coc-btn coc-btn-primary"
+          (click)="onPageChange(articlesPagination.pageNumber - 1)"
+          [disabled]="articlesPagination.pageNumber === 1"
+        >
+          <span>Précédent</span>
+        </button>
+      </ng-template>
+      <ng-template ngbPaginationNext>
+        <button
+          class="coc-btn coc-btn-primary"
+          (click)="onPageChange(articlesPagination.pageNumber + 1)"
+          [disabled]="
+            articlesPagination.pageNumber === articlesPagination.pageCount
+          "
+        >
+          <span>Suivant</span>
+        </button>
+      </ng-template>
+      <ng-template ngbPaginationPages let-page let-pages="pages">
+        @for (p of pages; track p) {
+        <li class="mx-2">
+          <button
+            class="coc-btn coc-btn-primary"
+            (click)="onPageChange(p)"
+            [disabled]="page === p"
+          >
+            <span>{{ p }}</span>
+          </button>
+        </li>
+        }
+      </ng-template>
+    </ngb-pagination>
+  </div>
+  } }
+</div>

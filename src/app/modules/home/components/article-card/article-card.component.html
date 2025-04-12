@@ -1,0 +1,25 @@
+<a class="coc-card" [routerLink]="link">
+  <div class="coc-img">
+    <img [src]="imageUrl" alt="Image d'en-tête" />
+  </div>
+  <div class="coc-body">
+    <div>
+      <span
+        class="coc-article-type"
+        [class.coc-primary]="article?.type === ArticleType.Update"
+        [class.coc-secondary]="article?.type === ArticleType.News"
+      >
+        {{ article?.type | articleTypeDictionary }}
+      </span>
+      <span class="coc-article-date">
+        {{ article?.publishedAt | momentDate : "DD/MM/YY" }}
+      </span>
+    </div>
+    <h4 class="coc-title h5">
+      <div class="coc-content">
+        {{ article?.title }}
+      </div>
+      <ng-icon name="bootstrapArrowRight" size=""></ng-icon>
+    </h4>
+  </div>
+</a>

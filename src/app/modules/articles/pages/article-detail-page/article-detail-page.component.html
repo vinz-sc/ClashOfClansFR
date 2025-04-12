@@ -1,0 +1,38 @@
+<div class="coc-container">
+  <div class="coc-header-image">
+    @if (!!article.headerImageUrl) {
+    <img [src]="headerUrl" alt="En-tête de l'article" />
+    } @else {
+    <iframe
+      [src]="headerUrl"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+    }
+  </div>
+
+  <div class="coc-header">
+    <div class="row mb-3">
+      <div class="col">
+        <span
+          class="coc-article-type"
+          [class.coc-primary]="article.type === ArticleType.Update"
+          [class.coc-secondary]="article.type === ArticleType.News"
+        >
+          {{ article.type | articleTypeDictionary }}
+        </span>
+        <span class="coc-separator">&VerticalSeparator;</span>
+        <span class="coc-article-date">
+          {{ article.publishedAt | momentDate : "DD MMMM" }}
+        </span>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <h1 class="col-6 coc-title text-start">{{ article.title }}</h1>
+    </div>
+  </div>
+
+  <div class="coc-article-content" [innerHTML]="content"></div>
+</div>

@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Observable } from 'rxjs';
-
-import { LoadingService } from './core/services/loading.service';
+import { Spinkit } from 'ng-http-loader';
 
 @Component({
   selector: 'app-root',
@@ -10,17 +8,5 @@ import { LoadingService } from './core/services/loading.service';
   standalone: false,
 })
 export class AppComponent {
-  /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\
-  |*                        CONSTRUCTORS                         *|
-  \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-  constructor(private readonly _loadingService: LoadingService) {}
-
-  /* * * * * * * * * * * * * * * *\
-  |*           GETTERS           *|
-  \* * * * * * * * * * * * * * * */
-
-  public get isLoading(): Observable<boolean> {
-    return this._loadingService.loading;
-  }
+  public readonly spinkit = Spinkit;
 }

@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ClashOfClansFRApi } from '@vinz-sc/clashofclansfr-api';
+import {
+  ClashOfClansFRApi,
+  ClashOfClansFRError,
+} from '@vinz-sc/clashofclansfr-api';
 
-import { LoadingService } from './loading.service';
+import { SpinnerVisibilityService } from 'ng-http-loader';
 
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -15,14 +18,24 @@ export class CoreService {
 
   private readonly _api: ClashOfClansFRApi;
 
+  private _tmpError: ClashOfClansFRError | null = null;
+
   /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\
   |*                        CONSTRUCTORS                         *|
   \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-  constructor(loadingService: LoadingService) {
+  constructor(spinnerService: SpinnerVisibilityService) {
     // Inputs
     {
-      this._api = new ClashOfClansFRApi(environment.apiUrl, loadingService);
+      this._api = new ClashOfClansFRApi(
+        environment.apiUrl,
+        {
+          show: spinnerService.show.bind(spinnerService),
+          hide: spinnerService.hide.bind(spinnerService),
+        },
+        null,
+        environment.production ? undefined : console.info
+      );
     }
   }
 
@@ -36,5 +49,19 @@ export class CoreService {
 
   public get api(): ClashOfClansFRApi {
     return this._api;
+  }
+
+  public get tmpError(): ClashOfClansFRError | null {
+    const error = this._tmpError;
+    this._tmpError = null;
+    return error;
+  }
+
+  /* * * * * * * * * * * * * * * *\
+  |*           SETTERS           *|
+  \* * * * * * * * * * * * * * * */
+
+  public set tmpError(error: ClashOfClansFRError | null) {
+    this._tmpError = error;
   }
 }

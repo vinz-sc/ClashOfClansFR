@@ -1,0 +1,69 @@
+<div
+  class="coc-header-bg"
+  [ngStyle]="{ 'background-image': 'url(' + (imageUrl | async) + ')' }"
+>
+  <div class="coc-header-dark">
+    <div class="coc-container">
+      <div class="coc-content">
+        <div class="coc-titles">
+          <h3 class="h2 coc-title">Bienvenue sur</h3>
+          <h1 class="coc-title">Clash of Clans FR</h1>
+        </div>
+        <div class="coc-buttons">
+          <a
+            class="coc-btn coc-btn-primary"
+            href="https://discord.gg/cocfrance"
+            target="_blank"
+          >
+            <span>Discord</span>
+          </a>
+          <a
+            class="coc-btn coc-btn-primary"
+            href="https://x.com/COCFrance"
+            target="_blank"
+          >
+            <span>Twitter / X</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="coc-articles coc-py">
+  <div class="coc-container">
+    <h2 class="coc-title">Les dernières publications</h2>
+
+    <div class="row justify-content-center">
+      @for (article of latestArticles | async; track article.id) {
+      <div class="col-12 col-md-6 col-lg-4 mb-4">
+        <app-article-card [article]="article"></app-article-card>
+      </div>
+      }
+    </div>
+  </div>
+</div>
+
+<div class="coc-creators coc-py">
+  <div class="coc-container">
+    <h2 class="coc-title">Les créateurs de contenu</h2>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <app-creator-card></app-creator-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="coc-developer coc-py">
+  <div class="coc-container">
+    <h2 class="coc-title">Le développeur</h2>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <app-developer-card></app-developer-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,2 +1,2 @@
 <router-outlet></router-outlet>
-<ng-http-loader *ngIf="isLoading | async"></ng-http-loader>
+<ng-http-loader [spinner]="spinkit.skSpinnerPulse"></ng-http-loader>

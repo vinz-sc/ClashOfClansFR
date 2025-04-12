@@ -1,4 +1,263 @@
 /* Importing Bootstrap SCSS file. */
 @use "bootstrap/scss/bootstrap";
 
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Clash";
+  src: url("/fonts/Clash_Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "ClashBold";
+  src: url("/fonts/Clash_Bold.otf") format("opentype");
+}
+
+:root {
+  --coc-black-rgb: 34, 39, 43;
+  --coc-white-rgb: 241, 242, 244;
+
+  --coc-black: rgb(var(--coc-black-rgb));
+  --coc-white: rgb(var(--coc-white-rgb));
+
+  --coc-bg-color-dark-rgb: 52, 48, 45;
+  --coc-bg-color-rgb: 64, 59, 55;
+  --coc-bg-color-light-rgb: 95, 86, 81;
+
+  --coc-color-rgb: 241, 242, 244;
+  --coc-color-hover-rgb: 220, 223, 228;
+
+  --coc-primary-color-rgb: 242, 140, 40;
+  --coc-secondary-color-rgb: 133, 192, 63;
+
+  --coc-bg-color-dark: rgb(var(--coc-bg-color-dark-rgb));
+  --coc-bg-color: rgb(var(--coc-bg-color-rgb));
+  --coc-bg-color-light: rgb(var(--coc-bg-color-light-rgb));
+  --coc-color: rgb(var(--coc-color-rgb));
+  --coc-color-hover: rgb(var(--coc-color-hover-rgb));
+
+  --coc-primary-color: rgb(var(--coc-primary-color-rgb));
+  --coc-secondary-color: rgb(var(--coc-secondary-color-rgb));
+}
+
+body {
+  background-color: var(--coc-bg-color) !important;
+  color: var(--coc-color) !important;
+
+  font-family: "Clash", sans-serif !important;
+  font-size: 0.9rem !important;
+
+  // .coc-header-bg {
+  //   position: relative;
+
+  //   height: 200px;
+
+  //   .coc-header-dark {
+  //     width: 100%;
+  //     height: 100%;
+
+  //     background-color: rgba(0, 0, 0, 0.2);
+  //   }
+
+  //   app-separator {
+  //     position: absolute;
+
+  //     bottom: 0;
+
+  //     width: 100%;
+  //     transform: translateY(1px);
+  //   }
+  // }
+
+  // .coc-content-separator {
+  //   position: relative;
+  //   padding-top: 100px;
+
+  //   app-separator {
+  //     position: absolute;
+
+  //     top: 0;
+
+  //     width: 100%;
+
+  //     transform: rotate(180deg) translateY(calc(100% + 1px));
+  //     transform-origin: bottom center;
+  //   }
+
+  //   .coc-container {
+  //     margin-top: 0;
+  //   }
+  // }
+
+  .coc-container {
+    position: relative;
+
+    @media screen and (min-width: 992px) {
+      max-width: var(--bs-breakpoint-xl);
+
+      padding: 0 2.5rem;
+      margin: 40px auto;
+    }
+
+    @media screen and (max-width: 991px) {
+      padding: 0 1.5rem;
+      margin: 20px auto;
+    }
+  }
+
+  .coc-btn {
+    --coc-btn-color-1: #f28c28;
+    --coc-btn-color-2: #f28c28;
+    --coc-btn-color-3: #b65f1a;
+    --coc-btn-color-4: #e89b3c;
+    --coc-btn-color-5: #b65f1a;
+    --coc-btn-color-6: #ffd27f;
+    --coc-btn-color-7-rgb: 232, 155, 60;
+
+    position: relative;
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.7rem 1.8rem;
+
+    color: #fff;
+    background: linear-gradient(
+      180deg,
+      var(--coc-btn-color-1),
+      var(--coc-btn-color-2) 40%,
+      var(--coc-btn-color-3)
+    );
+
+    border: 1px solid #000;
+    border-radius: 12px;
+
+    text-decoration: none;
+    font-size: 0.85rem;
+
+    box-shadow: 0 0 0 1px #000, 0 0 0 2px #000, 0 4px 0 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 -2px #000, 0 0 #000, 0 2px #000, 0 4px #000, -1px -1px #000,
+      1px -1px #000, 1px 0 #000, -1px 0 #000, 1px 1px #000, -1px 1px #000,
+      1px 2px #000, -1px 2px #000;
+
+    transition: transform 0.1s linear;
+
+    &.coc-btn-primary {
+      --coc-btn-color-1: #f28c28;
+      --coc-btn-color-2: #f28c28;
+      --coc-btn-color-3: #b65f1a;
+      --coc-btn-color-4: #e89b3c;
+      --coc-btn-color-5: #b65f1a;
+      --coc-btn-color-6: #ffd27f;
+      --coc-btn-color-7-rgb: 232, 155, 60;
+    }
+
+    &.coc-btn-success {
+      --coc-btn-color-1: #d3ebb7;
+      --coc-btn-color-2: #85c03f;
+      --coc-btn-color-3: #366c1b;
+      --coc-btn-color-4: #7fc427;
+      --coc-btn-color-5: #58a221;
+      --coc-btn-color-6: #d0e878;
+      --coc-btn-color-7-rgb: 152, 208, 64;
+    }
+
+    &.coc-btn-danger {
+      --coc-btn-color-1: #c80406;
+      --coc-btn-color-2: #c80406;
+      --coc-btn-color-3: #db0007;
+      --coc-btn-color-4: #e8484a;
+      --coc-btn-color-5: #c70406;
+      --coc-btn-color-6: #f67c7e;
+      --coc-btn-color-7-rgb: 199, 4, 6;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      z-index: 1;
+    }
+
+    &::before {
+      position: absolute;
+
+      content: "";
+
+      background: linear-gradient(
+        180deg,
+        var(--coc-btn-color-4),
+        var(--coc-btn-color-5)
+      );
+      border-radius: 12px;
+
+      box-shadow: inset 0 0 0.2143rem 0.0357rem hsla(0, 0%, 100%, 0.23);
+
+      inset: 2px;
+    }
+
+    &::after {
+      position: absolute;
+
+      content: "";
+
+      top: 0.375rem;
+      right: 0.375rem;
+      left: 0.375rem;
+
+      height: 50%;
+
+      background: linear-gradient(
+        180deg,
+        var(--coc-btn-color-6),
+        rgba(var(--coc-btn-color-7-rgb), 0.73)
+      );
+      border-radius: 0.5rem;
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.95);
+    }
+
+    &:disabled {
+      --coc-btn-color-1: #858585;
+      --coc-btn-color-2: #858585;
+      --coc-btn-color-3: #a3a3a3;
+      --coc-btn-color-4: #9a9a9a;
+      --coc-btn-color-5: #9a9a9a;
+      --coc-btn-color-6: #fefefe;
+      --coc-btn-color-7-rgb: 254, 254, 254;
+    }
+  }
+
+  .coc-title {
+    margin-bottom: 3rem;
+    font-family: "ClashBold", sans-serif;
+    text-align: center;
+
+    text-shadow: 0 -2px #000, 0 0 #000, 0 2px #000, 0 4px #000, -1px -1px #000,
+      1px -1px #000, 1px 0 #000, -1px 0 #000, 1px 1px #000, -1px 1px #000,
+      1px 2px #000, -1px 2px #000;
+  }
+
+  ngb-pagination .pagination .page-link {
+    padding: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+  }
+
+  .coc-article-content img,
+  .coc-article-content iframe {
+    max-width: 100%;
+  }
+
+  .carousel-inner {
+    height: 100%;
+
+    div {
+      height: 100%;
+    }
+  }
+
+  b {
+    font-family: "ClashBold", sans-serif;
+  }
+}

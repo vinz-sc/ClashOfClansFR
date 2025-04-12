@@ -1,0 +1,76 @@
+.coc-card {
+  width: 100%;
+
+  background-color: var(--coc-bg-color-light);
+
+  border: 3px solid black;
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  .coc-header {
+    display: grid;
+
+    padding: 1rem;
+    padding-bottom: 0;
+
+    .coc-card-title {
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+      text-wrap: nowrap;
+
+      font-family: "ClashBold", sans-serif;
+      font-size: 1.25rem;
+    }
+
+    .coc-date {
+      display: inline-block;
+
+      margin-bottom: 0.5rem;
+
+      font-size: 0.75rem;
+    }
+  }
+
+  .coc-body {
+    .coc-img-box {
+      position: relative;
+
+      width: 100%;
+      aspect-ratio: 460 / 220;
+
+      background-size: cover;
+      background-position: center;
+
+      mask-size: cover;
+      mask-position: center;
+      mask-repeat: no-repeat;
+
+      mask-image: url("/images/border_2.png");
+      -webkit-mask-image: url("/images/border_2.png");
+
+      overflow: hidden;
+
+      .coc-img {
+        position: absolute;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        pointer-events: none;
+
+        z-index: 1;
+      }
+    }
+
+    .coc-content {
+      padding: 0.5rem;
+
+      text-align: right;
+    }
+  }
+}

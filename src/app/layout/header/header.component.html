@@ -1,0 +1,37 @@
+<header
+  [class.coc-home]="isHomePage"
+  [ngStyle]="{ 'background-image': 'url(' + (imageUrl | async) + ')' }"
+>
+  <div class="coc-header-dark">
+    <nav class="coc-navbar navbar navbar-expand-lg">
+      <a class="coc-navbar-brand" routerLink="">
+        <img src="brand.png" alt="Logo" height="50" class="d-inline-block" />
+      </a>
+      <div class="coc-collapse-btn" (click)="toggleMenu()">
+        <ng-icon
+          [name]="isMenuOpen ? 'bootstrapXLg' : 'bootstrapList'"
+          size=""
+        ></ng-icon>
+      </div>
+      <div
+        class="coc-navbar-collapse"
+        [ngClass]="{ 'coc-navbar-open': isMenuOpen }"
+      >
+        <ul class="coc-navbar-nav">
+          @for (nav of navigationItems; track nav.path) {
+          <li class="coc-nav-item">
+            <a
+              class="coc-nav-link"
+              [routerLink]="nav.path"
+              routerLinkActive="coc-link-active"
+              (click)="closeMenu()"
+            >
+              {{ nav.label }}
+            </a>
+          </li>
+          }
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,83 @@
+.coc-card {
+  display: block;
+  position: relative;
+
+  padding: 0.5rem;
+
+  color: inherit;
+
+  background-color: var(--coc-bg-color-light);
+  border-radius: 1rem;
+
+  box-shadow: 0 3px 0 var(--coc-bg-color-dark);
+  text-decoration: none;
+
+  transform: none;
+  transition: transform 0.2s ease-in-out;
+
+  .coc-img img {
+    width: 100%;
+    height: auto;
+
+    border-radius: 0.5rem;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .coc-body {
+    position: relative;
+
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
+
+    .coc-article-type {
+      margin-right: 0.5rem;
+
+      &.coc-primary {
+        color: var(--coc-primary-color);
+      }
+
+      &.coc-secondary {
+        color: var(--coc-secondary-color);
+      }
+    }
+
+    .coc-article-date {
+      color: rgba(var(--coc-color-rgb), 0.8);
+      font-size: 0.75rem;
+    }
+
+    .coc-title {
+      position: relative;
+
+      margin-top: 1rem;
+      margin-bottom: 0;
+
+      .coc-content {
+        display: -webkit-box;
+
+        max-width: calc(100% - 2rem);
+
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+
+        overflow: hidden;
+
+        text-align: left;
+        text-overflow: ellipsis;
+      }
+
+      ng-icon {
+        position: absolute;
+
+        top: 0;
+        right: 0;
+      }
+    }
+  }
+
+  &:hover {
+    transform: scale(0.95);
+  }
+}
